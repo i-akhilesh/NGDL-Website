@@ -79,8 +79,8 @@ const DefaultFooter = () => {
               <a href="https://instagram.com">IG</a>
             </li>
             <li className="mil-adapt-links">
-              <a href="https://linkedin.com/company/nextgendigilab">LinkedIn</a>
-              <a href="https://linkedin.com/company/nextgendigilab">IN</a>
+              <a href="https://linkedin.com/company/nextgen-digilab">LinkedIn</a>
+              <a href="https://linkedin.com/company/nextgen-digilab">IN</a>
             </li>
             <li className="mil-adapt-links">
               <a href="https://twitter.com">Twitter</a>
