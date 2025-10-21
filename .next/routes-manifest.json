@@ -1,0 +1,242 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/404",
+      "regex": "^/404(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/404(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/careers",
+      "regex": "^/careers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/careers(?:/)?$"
+    },
+    {
+      "page": "/coming-soon",
+      "regex": "^/coming\\-soon(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/coming\\-soon(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/contact2",
+      "regex": "^/contact2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact2(?:/)?$"
+    },
+    {
+      "page": "/event",
+      "regex": "^/event(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/event(?:/)?$"
+    },
+    {
+      "page": "/faq",
+      "regex": "^/faq(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/faq(?:/)?$"
+    },
+    {
+      "page": "/home-2",
+      "regex": "^/home\\-2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/home\\-2(?:/)?$"
+    },
+    {
+      "page": "/portfolio",
+      "regex": "^/portfolio(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/portfolio(?:/)?$"
+    },
+    {
+      "page": "/prices",
+      "regex": "^/prices(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/prices(?:/)?$"
+    },
+    {
+      "page": "/project",
+      "regex": "^/project(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/project(?:/)?$"
+    },
+    {
+      "page": "/project2",
+      "regex": "^/project2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/project2(?:/)?$"
+    },
+    {
+      "page": "/project3",
+      "regex": "^/project3(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/project3(?:/)?$"
+    },
+    {
+      "page": "/publication",
+      "regex": "^/publication(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/publication(?:/)?$"
+    },
+    {
+      "page": "/publication0",
+      "regex": "^/publication0(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/publication0(?:/)?$"
+    },
+    {
+      "page": "/publication2",
+      "regex": "^/publication2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/publication2(?:/)?$"
+    },
+    {
+      "page": "/publication3",
+      "regex": "^/publication3(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/publication3(?:/)?$"
+    },
+    {
+      "page": "/service-1",
+      "regex": "^/service\\-1(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/service\\-1(?:/)?$"
+    },
+    {
+      "page": "/service-2",
+      "regex": "^/service\\-2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/service\\-2(?:/)?$"
+    },
+    {
+      "page": "/service-3",
+      "regex": "^/service\\-3(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/service\\-3(?:/)?$"
+    },
+    {
+      "page": "/service-4",
+      "regex": "^/service\\-4(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/service\\-4(?:/)?$"
+    },
+    {
+      "page": "/solution-1",
+      "regex": "^/solution\\-1(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/solution\\-1(?:/)?$"
+    },
+    {
+      "page": "/solution-2",
+      "regex": "^/solution\\-2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/solution\\-2(?:/)?$"
+    },
+    {
+      "page": "/solution-3",
+      "regex": "^/solution\\-3(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/solution\\-3(?:/)?$"
+    },
+    {
+      "page": "/solution-4",
+      "regex": "^/solution\\-4(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/solution\\-4(?:/)?$"
+    },
+    {
+      "page": "/solution-5",
+      "regex": "^/solution\\-5(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/solution\\-5(?:/)?$"
+    },
+    {
+      "page": "/team",
+      "regex": "^/team(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/team(?:/)?$"
+    },
+    {
+      "page": "/team1",
+      "regex": "^/team1(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/team1(?:/)?$"
+    },
+    {
+      "page": "/team2",
+      "regex": "^/team2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/team2(?:/)?$"
+    }
+  ],
+  "dataRoutes": [
+    {
+      "page": "/",
+      "dataRouteRegex": "^/_next/data/kydQpr45UOMQVPasptJ6x/index\\.json$"
+    },
+    {
+      "page": "/careers",
+      "dataRouteRegex": "^/_next/data/kydQpr45UOMQVPasptJ6x/careers\\.json$"
+    }
+  ],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

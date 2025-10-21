@@ -1,0 +1,17 @@
+{
+    "subtitle": "Testimonials",
+    "title": { 
+      "first": "What Our", 
+      "second": "Clients", 
+      "third": "Say About Us" 
+    },
+    "items": [
+      {
+        "name": "Dr. Pralhad Wangikar",
+        "image": "img/testimonial/prado.jpeg",
+        "role": "TFM , Prado Preclinical Pvt. Ltd.",
+        "text": "They successfully delivered the software modules for the Study and Document Control departments of our facility. We are very satisfied with the services provided by Nextgen Digi Lab. Excellent team spirit — truly appreciated!"
+      }
+    ]
+  }
+  

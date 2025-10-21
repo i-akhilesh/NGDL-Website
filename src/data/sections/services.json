@@ -1,0 +1,49 @@
+{
+    "title": {"first": "How We Can", "second": "Help You"},
+    "column1": {
+        "heading": "IT Services",
+        "items": [
+            {
+                "num": "01",
+                "name": "Document Control",
+                "icon": "img/icons/md/1.svg",
+                "text": "Simplify regulatory compliance and version management with our secure, cloud-based document control software designed for pharma and research industries."
+            },
+            {
+                "num": "02",
+                "name": "Study Plan Management",
+                "icon": "img/icons/md/2.svg",
+                "text": "Plan, track, and manage your clinical or preclinical studies efficiently with centralized digital workflows and automated approvals."
+            },
+            {
+                "num": "03",
+                "name": "Customised Development",
+                "icon": "img/icons/md/3.svg",
+                "text": "Get tailor-made software solutions crafted to meet your organization’s unique operational, research, and data management needs."
+            }
+        ]
+    },
+    "column2": {
+        "heading": "IT Solutions",
+        "items": [
+            {
+                "num": "04",
+                "name": "Synchronized Clock",
+                "icon": "img/icons/md/4.svg",
+                "text": "Maintain precise time synchronization across facilities while continuously logging temperature and humidity data for audits and compliance."
+            },
+            {
+                "num": "05",
+                "name": "Fridge Thermostat",
+                "icon": "img/icons/md/5.svg",
+                "text": "Smart temperature monitoring solution for laboratory and cold storage units to ensure sample safety and regulatory consistency."
+            },
+            {
+                "num": "06",
+                "name": "Soil & Water Quality Monitoring Kit",
+                "icon": "img/icons/md/6.svg",
+                "text": "Integrated IoT system that measures real-time soil and water parameters, enabling data-driven decisions."
+            }
+        ]
+    }
+}

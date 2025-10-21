@@ -1,0 +1,38 @@
+{
+    "title": { 
+      "first": "NEXT GEN  <br />DIGI LAB", 
+      "second": "" 
+    },
+    "subtitle": { 
+      "first": "", 
+      "second": "" 
+    },
+    "button": { 
+      "label": "Let’s Talk", 
+      "link": "/contact" 
+    },
+    "description": "Transform your business with tailored digital and IoT solutions. At Nextgen Digi Lab, we help enterprises innovate, automate, and scale efficiently through smart technology and seamless integration.",
+    "slides": [
+      { "image": "img/photo/1.jpg" },
+      { "image": "img/photo/2.jpg" },
+      { "image": "img/photo/3.jpg" }
+    ],
+    "items": [
+      {
+        "label": "Software Development",
+        "title": "Custom Applications",
+        "text": "We build robust applications that automate processes and bring your ideas to life with precision and scalability."
+      },
+      {
+        "label": "IoT Solutions",
+        "title": "Smart Devices & Systems",
+        "text": "From WiFi Clocks to Environmental Monitors, we design intelligent IoT devices that connect seamlessly to the cloud for real-time insights."
+      },
+      {
+        "label": "R&D & Innovation",
+        "title": "Prototyping to Production",
+        "text": "Our R&D team helps you go from concept to market-ready product — delivering hardware and software innovation under one roof."
+      }
+    ]
+  }
+  

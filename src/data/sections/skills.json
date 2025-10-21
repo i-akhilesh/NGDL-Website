@@ -1,0 +1,39 @@
+{
+    "title": { "first": "Business", "second": "Success", "third": "With <br />Technology" },
+    "subtitle": "Our Skill",
+    "description": "At Nextgen Digi Lab, we blend innovation, precision, and domain expertise to deliver impactful digital and IoT solutions. Our team bridges the gap between software and hardware, empowering pharma, clinical, and industrial organizations to scale smarter and faster.",
+    "items": [
+        {
+            "label": "Software Development",
+            "value": "85"
+        },
+        {
+            "label": "Web Development",
+            "value": "90"
+        },
+        {
+            "label": "UX / UI Design",
+            "value": "80"
+        },
+        {
+            "label": "App Development",
+            "value": "85"
+        },
+        {
+            "label": "Internet of Things",
+            "value": "95"
+        },
+        {
+            "label": "Artificial Intelligence",
+            "value": "80"
+        },
+        {
+            "label": "Data & Cloud Integration",
+            "value": "80"
+        }
+    ],
+    "button": {
+        "label": "More",
+        "link": "/about"
+    }
+}

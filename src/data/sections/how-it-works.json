@@ -1,0 +1,34 @@
+{
+    "title": { "first": "How We", "second": "Collaborate", "third": "With You" },
+    "subtitle": "Discover Our Company",
+    "items": [
+        {
+            "name": "Thinking Big",
+            "icon": "/img/icons/sm/1.svg",
+            "text": "We begin by understanding your long-term vision and industry challenges to design scalable, future-ready digital and IoT solutions tailored to your goals."
+        },
+        {
+            "name": "Starting Small",
+            "icon": "/img/icons/sm/2.svg",
+            "text": "We start with a focused pilot or MVP, ensuring faster validation, minimal risk, and clear results before scaling up."
+        },
+        {
+            "name": "Creating Fast",
+            "icon": "/img/icons/sm/3.svg",
+            "text": "Our agile teams deliver rapid prototypes and iterations so you can see measurable progress and make informed decisions at every stage."
+        },
+        {
+            "name": "Innovating Scale",
+            "icon": "/img/icons/sm/4.svg",
+            "text": "Once validated, we expand your solution across departments or facilities — enhancing performance, efficiency, and digital transformation enterprise-wide."
+        }
+    ],
+    "button1": {
+        "label": "Learn More",
+        "link": "/about"
+    },
+    "button2": {
+        "label": "Contact Us",
+        "link": "/careers"
+    }
+}
