@@ -12,10 +12,10 @@ import SkillsSection from "../components/sections/Skills";
 import ContactSection from "../components/sections/Contact";
 import Divider from "../components/sections/Divider";
 
-const LatestProjectsSlider = dynamic( () => import("../components/sliders/LatestProjects"), { ssr: false } );
-const LatestPostsSlider = dynamic( () => import("../components/sliders/LatestPosts"), { ssr: false } );
-const HeroSlideshowSlider = dynamic( () => import("../components/sliders/HeroSlideshow"), { ssr: false } );
-const TestimonialSlider = dynamic( () => import("../components/sliders/Testimonial"), { ssr: false } );
+const LatestProjectsSlider = dynamic(() => import("../components/sliders/LatestProjects"), { ssr: false });
+const LatestPostsSlider = dynamic(() => import("../components/sliders/LatestPosts"), { ssr: false });
+const HeroSlideshowSlider = dynamic(() => import("../components/sliders/HeroSlideshow"), { ssr: false });
+const TestimonialSlider = dynamic(() => import("../components/sliders/Testimonial"), { ssr: false });
 
 const Home1 = (props) => {
   return (

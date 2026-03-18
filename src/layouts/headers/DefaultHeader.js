@@ -25,9 +25,8 @@ const DefaultHeader = ({ transparent, headerTop, extarClass }) => {
         </div>
       )}
       <div
-        className={`mil-top-panel ${
-          transparent ? "mil-top-panel-transparent mil-animated" : ""
-        }`}
+        className={`mil-top-panel ${transparent ? "mil-top-panel-transparent mil-animated" : ""
+          }`}
       >
         {/* mil-top-panel-transparent */}
         <div className="container">
@@ -55,6 +54,23 @@ const DefaultHeader = ({ transparent, headerTop, extarClass }) => {
                     <li>
                       <Link href="service-4">Service 4</Link>
                     </li> */}
+                  </ul>
+                </li>
+                <li className="mil-has-children">
+                  <Link href="#.">QMS</Link>
+                  <ul>
+                    <li>
+                      <Link href="sop-module">SOP Module</Link>
+                    </li>
+                    <li>
+                      <Link href="#.">Document Control</Link>
+                    </li>
+                    <li>
+                      <Link href="#.">Audit Management</Link>
+                    </li>
+                    <li>
+                      <Link href="#.">CAPA Tracking</Link>
+                    </li>
                   </ul>
                 </li>
                 <li className="mil-has-children">
