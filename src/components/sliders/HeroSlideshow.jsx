@@ -136,7 +136,7 @@ const CustomHero3D = () => {
         overflow: "hidden",
       }}>
         {/* 3D Background — never moves */}
-        <TechNetworkBackground showNetwork={false} />
+        <TechNetworkBackground showNetwork={true} />
 
         {/* Vignette */}
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at center, transparent 0%, rgba(0,31,63,0.5) 70%, rgba(0,31,63,0.85) 100%)", zIndex: 2 }} />
