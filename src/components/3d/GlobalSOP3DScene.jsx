@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Environment, Float, OrbitControls } from '@react-three/drei';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Float, OrbitControls, Stars } from '@react-three/drei';
 import * as THREE from 'three';
 
 const MedicalCapsule = ({ scrollY }) => {
@@ -11,19 +11,10 @@ const MedicalCapsule = ({ scrollY }) => {
             groupRef.current.rotation.x += delta * 0.3;
             groupRef.current.rotation.y += delta * 0.5;
 
-            // Base bobbing
-            const basePosY = Math.sin(state.clock.elapsedTime) * 0.2;
-
-            // Animate based on scroll
-            // Push capsule further right and down as we scroll into the Details section
-            // Starting position: x=2.5 (right side of screen), z=-1 (slightly pushed back)
-            const targetX = 2.5 + (scrollY * 0.003);
-            const targetY = basePosY - (scrollY * 0.001);
-            const targetZ = -1 - (scrollY * 0.005);
-
-            groupRef.current.position.x = THREE.MathUtils.lerp(groupRef.current.position.x, Math.min(targetX, 4), 0.1);
-            groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, targetY, 0.1);
-            groupRef.current.position.z = THREE.MathUtils.lerp(groupRef.current.position.z, targetZ, 0.1);
+            // Gentle bob only — position is fixed
+            groupRef.current.position.x = 2.5;
+            groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.2;
+            groupRef.current.position.z = -1;
         }
     });
 
@@ -76,13 +67,17 @@ const Scene = ({ scrollY }) => {
     return (
         <>
             <ambientLight intensity={0.6} />
-            <directionalLight position={[10, 10, 5]} intensity={1.5} color="#EAD8B1" />
-            <directionalLight position={[-10, -10, -5]} intensity={1} color="#6A9AB0" />
+            <pointLight position={[10, 10, 10]} intensity={1.5} color="#EAD8B1" />
+            <pointLight position={[-10, -10, -10]} intensity={1} color="#6A9AB0" />
+
+            {/* Universe starfield — same as hero section */}
+            <Stars radius={120} depth={60} count={4000} factor={3} saturation={0} fade speed={1} />
 
             <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
                 <MedicalCapsule scrollY={scrollY} />
             </Float>
-            <Environment preset="city" />
+
+            <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.4} />
         </>
     );
 };
@@ -110,7 +105,7 @@ const GlobalSOP3DScene = () => {
             height: '100vh',
             zIndex: -1, // Behind everything
             pointerEvents: 'none', // Don't block clicks to DOM underneath
-            background: 'radial-gradient(circle at center, #3A6D8C 0%, #001F3F 100%)'
+            background: '#001F3F'
         }}>
             <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
                 <Scene scrollY={scrollY} />

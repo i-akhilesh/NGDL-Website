@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "badge": "Digital Compliance 2.0",
+    "title_first": "Reimagined",
+    "title_second": "Standard Operating Procedures",
+    "description": "Digitize, streamline, and secure your organizational knowledge with our enterprise-grade SOP module. Built for high-reliability sectors requiring ultimate version control and bulletproof audit trails."
+  },
+  "showcases": [
+    {
+      "id": "dashboard",
+      "badge": "Intelligent Dashboard",
+      "title": "Command Center for Compliance",
+      "description": "Get a bird's-eye view of your entire procedural landscape. Track pending approvals, upcoming review cycles, and team training progress entirely in real-time.",
+      "list": [
+        "Real-time analytics and compliance scoring",
+        "Actionable alerts for expiring documents",
+        "Customizable widgets for role-specific views"
+      ],
+      "img": "/img/portfolio/1.jpg"
+    },
+    {
+      "id": "editor",
+      "badge": "Rich Procedure Authoring",
+      "title": "Rich Procedure Authoring",
+      "description": "Say goodbye to static PDFs. Our dynamic editor allows you to build interactive, media-rich Standard Operating Procedures that teams actually understand.",
+      "list": [
+        "Drag-and-drop media embedding (images, videos)",
+        "Automated versioning completely hidden from the author",
+        "Inline commenting and collaborative drafting"
+      ],
+      "img": "/img/portfolio/2.jpg"
+    },
+    {
+      "id": "blockchain",
+      "badge": "Advanced Security",
+      "title": "Blockchain-Backed Audit Trails",
+      "description": "Every signature, approval, and version change is recorded on an immutable ledger, ensuring absolute data integrity that satisfies the strictest global regulators.",
+      "list": [
+        "Immutable record of all document interactions",
+        "FDA 21 CFR Part 11 compliant digital signatures",
+        "Instant cryptographic verification of audit logs"
+      ],
+      "img": "/img/portfolio/3.jpg"
+    }
+  ],
+  "features": [
+    {
+      "id": "compliance",
+      "title": "Compliant by Design",
+      "description": "Built to meet strict regulatory standards including FDA 21 CFR Part 11, GAMP 5, and ISO 9001.",
+      "icon": "ShieldCheck"
+    },
+    {
+      "id": "version",
+      "title": "Smart Versioning",
+      "description": "Automated version control with zero manual file renaming. Always access the single source of truth.",
+      "icon": "RefreshCw"
+    },
+    {
+      "id": "access",
+      "title": "Role-Based Security",
+      "description": "Granular permissions control precisely who can view, edit, or approve specific quality documents.",
+      "icon": "Users"
+    },
+    {
+      "id": "ai",
+      "title": "AI-Powered Search",
+      "description": "Intelligent indexing and NLP search allow users to find critical procedures using natural language queries.",
+      "icon": "Zap"
+    },
+    {
+      "id": "review",
+      "title": "Periodic Reviews",
+      "description": "Automated review cycles ensure your procedures never fall out of date or out of compliance.",
+      "icon": "Clock"
+    },
+    {
+      "id": "media",
+      "title": "Multimedia Ready",
+      "description": "Embed instructional videos and high-res diagrams directly into procedures for faster training.",
+      "icon": "FileText"
+    }
+  ]
+}

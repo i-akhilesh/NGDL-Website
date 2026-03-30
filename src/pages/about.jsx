@@ -4,7 +4,7 @@ import Layouts from "@/src/layouts/Layouts";
 import Link from "next/link";
 const About = () => {
   return (
-    <Layouts>
+    <Layouts transparent>
       <PageBanner pageName={"About us"} pageTitle={"Nextgen Digi Lab"} />
       {/* call to action */}
       <section className="mil-p-120-60">
@@ -13,7 +13,7 @@ const About = () => {
             <div className="col-lg-12 col-xl-6">
               <h4 className="mil-mb-60">
                 {/* Lorem ipsum dolor sit amet,{" "} */}
-                <span className="mil-accent">Transforming Pharma & Clinical Industries with Digital Innovation</span>, At Nextgen Digi Lab, we specialize in building cutting-edge software solutions and IoT hardware products tailored for the pharmaceutical, clinical, and preclinical industries. Our mission is to empower organizations with Industry 4.0-ready technologies that drive efficiency, accuracy, and innovation.
+                <span className="mil-accent">Transforming Pharma, Clinical & Preclinical Industries with Digital Innovation</span>, At Nextgen Digi Lab, we specialize in building cutting-edge software solutions and IoT hardware products. Our mission is to empower organizations with Industry 4.0-ready technologies that drive efficiency, accuracy, and innovation.
                 
               </h4>
             </div>
@@ -132,7 +132,7 @@ const About = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <h6 className="mil-mb-30">
-                    <span className="mil-accent">💡</span>&nbsp; Specialized in Pharma & Clinical Software Development
+                    <span className="mil-accent">💡</span>&nbsp; Specialized in Pharma, Clinical & Precilinal Software Development
                     Development
                   </h6>
                   <div className="mil-divider mil-divider-left mil-mb-60" />

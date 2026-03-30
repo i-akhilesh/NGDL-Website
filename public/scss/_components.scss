@@ -228,7 +228,7 @@ top panel
                                 display: none;
                             }
 
-                            & > a {
+                            &>a {
                                 &:before {
                                     content: '';
                                     position: absolute;
@@ -2657,7 +2657,7 @@ tabs
     & input[type="radio"] {
         display: none;
 
-        &:checked + label {
+        &:checked+label {
             color: $dark;
 
             &:after {
@@ -2671,7 +2671,7 @@ tabs
             }
         }
 
-        &:checked + label + .mil-tab {
+        &:checked+label+.mil-tab {
             display: block;
         }
     }
@@ -3659,7 +3659,7 @@ additional pages
         top: 0;
         left: 0;
     }
-    
+
     & .container {
         position: relative;
     }

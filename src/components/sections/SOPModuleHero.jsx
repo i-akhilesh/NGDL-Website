@@ -1,92 +1,58 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
+import Content from '../../data/sections/sop.json';
+
+const TechNetworkBackground = dynamic(() => import("../3d/TechNetworkBackground"), { ssr: false });
 
 const SOPModuleHero = () => {
+    const { hero } = Content;
+
     return (
-        <section style={{
-            position: 'relative',
-            height: '100vh',
-            minHeight: '800px',
-            background: 'transparent',
-            overflow: 'hidden',
-            display: 'flex',
-            alignItems: 'center'
-        }}>
+        <section className="mil-banner mil-dark-bg mil-p-120-0" style={{ position: 'relative', height: '100vh', minHeight: '800px', background: '#001F3F', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
+            
+            {/* 3D Starry Network Background (Stars Only Mode for Product Focus) */}
+            <TechNetworkBackground showNetwork={false} />
 
+            <div className="mil-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,31,63,0.4)', zIndex: 2 }} />
 
-            {/* Foreground Content */}
-            <div className="container" style={{ position: 'relative', zIndex: 10, pointerEvents: 'none' }}>
-                <div className="row">
-                    <div className="col-lg-8">
+            <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+                <div className="row justify-content-center">
+                    <div className="col-xl-10 mil-text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, ease: "easeOut" }}
                         >
-                            <div style={{
-                                display: 'inline-block',
-                                padding: '8px 20px',
-                                background: 'rgba(106, 154, 176, 0.2)',
-                                border: '1px solid rgba(106, 154, 176, 0.4)',
-                                borderRadius: '30px',
-                                color: '#EAD8B1',
-                                fontWeight: '600',
-                                marginBottom: '20px',
-                                pointerEvents: 'auto'
-                            }}>
-                                Next-Gen Module
+                            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', alignItems: 'center', marginBottom: '30px', pointerEvents: 'auto' }}>
+                                <a href="/qms" className="mil-link mil-light mil-uppercase" style={{ fontSize: '10px', letterSpacing: '2px', fontWeight: '700' }}>
+                                    ← Back to QMS Suite
+                                </a>
+                                <span className="mil-suptitle mil-suptitle-2 mil-accent" style={{ margin: 0, color: '#EAD8B1' }}>
+                                    {hero.badge}
+                                </span>
                             </div>
-                            <h1 style={{
-                                color: 'white',
-                                fontSize: 'clamp(3rem, 6vw, 5rem)',
-                                fontWeight: '800',
-                                lineHeight: '1.1',
-                                marginBottom: '30px'
-                            }}>
-                                Standard Operating<br />
-                                <span style={{
-                                    background: 'linear-gradient(to right, #6A9AB0, #EAD8B1)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent'
-                                }}>Procedures Reimagined</span>
+                            
+                            <h1 className="mil-mb-30 mil-light mil-font-1" style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', lineHeight: '1.1' }}>
+                                <span className="mil-font-2" style={{ fontWeight: 300, display: 'block', marginBottom: '10px', fontSize: '0.4em', opacity: 0.6, textTransform: 'uppercase', letterSpacing: '8px' }}>
+                                    {hero.title_first}
+                                </span>
+                                <span className="mil-accent" style={{ color: '#ffffff' }}>{hero.title_second}</span>
                             </h1>
-                            <p style={{
-                                color: '#EAD8B1',
-                                fontSize: '1.25rem',
-                                maxWidth: '600px',
-                                marginBottom: '40px',
-                                lineHeight: '1.6',
-                                opacity: 0.9
-                            }}>
-                                Digitize, streamline, and secure your organizational knowledge. Our SOP module ensures compliance, accelerates training, and maintains ultimate version control.
+
+                            <p className="mil-text-lg mil-light-soft mil-mb-60" style={{ maxWidth: '800px', margin: '0 auto 40px', fontSize: '1.25rem' }}>
+                                {hero.description}
                             </p>
 
                             <div style={{ pointerEvents: 'auto' }}>
-                                <a href="#demo" style={{
-                                    background: '#EAD8B1',
-                                    color: '#001F3F',
-                                    padding: '16px 40px',
-                                    borderRadius: '30px',
-                                    fontWeight: '700',
-                                    textDecoration: 'none',
-                                    fontSize: '1.1rem',
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    gap: '10px',
-                                    transition: 'all 0.3s ease',
-                                    boxShadow: '0 10px 25px -5px rgba(234, 216, 177, 0.3)'
-                                }}
-                                    onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
-                                    onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-                                >
-                                    Watch Demo <span style={{ fontSize: '1.2rem' }}>↓</span>
+                                <a href="#demo" className="mil-button mil-border mil-light" style={{ borderColor: '#EAD8B1', color: '#EAD8B1' }}>
+                                    <span>Explore Technology <i className="fas fa-arrow-down" style={{ marginLeft: '10px' }} /></span>
                                 </a>
                             </div>
                         </motion.div>
                     </div>
                 </div>
             </div>
-
         </section>
     );
 };

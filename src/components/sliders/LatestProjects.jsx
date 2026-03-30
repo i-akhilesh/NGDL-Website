@@ -4,8 +4,8 @@ import { sliderProps } from "../../common/sliderProps";
 
 import SectionData from '../../data/sliders/latest-projects';
 
-const LatestProjects = ( {projects} ) => {
-  
+const LatestProjects = ({ projects }) => {
+
   return (
     <section className="mil-works mil-p-120-90">
       <div className="mil-deco" style={{ top: 0, right: "40%" }} />
@@ -35,26 +35,26 @@ const LatestProjects = ( {projects} ) => {
           className="swiper-container mil-works-slider mil-mb-90"
         >
           {projects.slice(0, SectionData.numOfItems).map((item, key) => (
-          <SwiperSlide className="swiper-slide">
-            <Link href="portfolio" className="mil-card">
-              <div className="mil-cover-frame">
-                <img src={item.image} alt={item.title} />
-              </div>
-              <div className="mil-description">
-                <div className="mil-card-title">
-                  <h4 className="mil-mb-20">
-                    {item.title}
-                  </h4>
-                  <h6>
-                    by: <span className="mil-accent">{item.author}</span>
-                  </h6>
+            <SwiperSlide className="swiper-slide">
+              <Link href="portfolio" className="mil-card">
+                <div className="mil-cover-frame">
+                  <img src={item.image} alt={item.title} />
                 </div>
-                <div className="mil-card-text">
-                  <p>{item.short}</p>
+                <div className="mil-description">
+                  <div className="mil-card-title">
+                    <h4 className="mil-mb-20">
+                      {item.title}
+                    </h4>
+                    <h6>
+                      by: <span className="mil-accent">{item.author}</span>
+                    </h6>
+                  </div>
+                  <div className="mil-card-text">
+                    <p>{item.short}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </SwiperSlide>
+              </Link>
+            </SwiperSlide>
           ))}
         </Swiper>
 

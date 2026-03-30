@@ -2,208 +2,131 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, FileText, Users, Clock, RefreshCw, Zap } from 'lucide-react';
 import ScreenshotShowcase from './SOPModuleScreenshots';
+import SOPModuleDemo from './SOPModuleDemo';
+import Content from '../../data/sections/sop.json';
 
-const FeatureCard = ({ icon: Icon, title, description, delay }) => {
+const iconMap = {
+    ShieldCheck,
+    FileText,
+    Users,
+    Clock,
+    RefreshCw,
+    Zap
+};
+
+const FeatureCard = ({ icon: iconName, title, description, delay }) => {
+    const Icon = iconMap[iconName] || ShieldCheck;
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay }}
             viewport={{ once: true, margin: "-50px" }}
+            className="mil-dark-card mil-mb-30"
             style={{
-                background: 'rgba(58, 109, 140, 0.1)',
+                background: '#001F3F',
                 border: '1px solid rgba(106, 154, 176, 0.2)',
                 borderRadius: '24px',
-                padding: '30px',
-                height: '100%',
-                transition: 'all 0.4s ease',
-                position: 'relative',
-                overflow: 'hidden'
+                padding: '40px',
+                height: 'calc(100% - 30px)',
+                transition: 'all 0.4s ease'
             }}
-            className="feature-card-hover"
         >
-            <style jsx>{`
-        .feature-card-hover:hover {
-          background: rgba(106, 154, 176, 0.15) !important;
-          transform: translateY(-8px);
-          border-color: rgba(106, 154, 176, 0.4) !important;
-          box-shadow: 0 20px 40px -10px rgba(0, 31, 63, 0.5);
-        }
-      `}</style>
-            <div style={{
-                width: '56px',
-                height: '56px',
-                borderRadius: '16px',
-                background: 'rgba(58, 109, 140, 0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '24px',
-                color: '#EAD8B1',
-                boxShadow: 'inset 0 0 10px rgba(106, 154, 176, 0.1)'
-            }}>
-                <Icon size={28} strokeWidth={1.5} />
+            <div className="mil-icon-frame mil-icon-frame-md mil-mb-30" style={{ background: 'rgba(255, 255, 255, 0.05)' }}>
+                <Icon size={28} strokeWidth={1.5} color="#EAD8B1" />
             </div>
-            <h4 style={{ color: 'white', marginBottom: '15px', fontSize: '1.3rem' }}>{title}</h4>
-            <p style={{ color: '#EAD8B1', lineHeight: '1.6', margin: 0, opacity: 0.8 }}>{description}</p>
+            <h4 className="mil-light mil-mb-20 mil-font-1">{title}</h4>
+            <p className="mil-text-sm mil-light-soft mil-font-2" style={{ color: 'rgba(255, 255, 255, 0.6)', lineHeight: '1.6' }}>{description}</p>
         </motion.div>
     );
 };
 
 const SOPModuleDetails = () => {
     return (
-        <section id="demo" style={{ background: 'transparent', padding: '120px 0', position: 'relative' }}>
+        <section id="demo" className="mil-p-120-120" style={{ background: '#ffffff' }}>
             <div className="container">
-
-                {/* Deep Dive Screenshot Showcases */}
-                <div style={{ marginBottom: '140px', paddingTop: '40px' }}>
-                    <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-                        <h2 style={{ color: 'white', fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '15px' }}>
-                            Inside the <span style={{ color: '#6A9AB0' }}>Platform</span>
+                
+                {/* Section Header */}
+                <div className="row justify-content-center mil-mb-90">
+                    <div className="col-xl-8 mil-text-center">
+                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30" style={{ color: '#121820' }}>
+                            Advanced Compliance Architecture
+                        </span>
+                        <h2 className="mil-mb-30 mil-font-1" style={{ color: '#121820' }}>
+                           Technical <span className="mil-accent" style={{ color: '#3A6D8C' }}>Deep-Dive</span>
                         </h2>
-                        <p style={{ color: '#EAD8B1', fontSize: '1.15rem', maxWidth: '700px', margin: '0 auto', opacity: 0.8 }}>
-                            Explore the interfaces designed to make compliance effortless and procedure management completely frictionless.
+                        <p className="mil-font-2" style={{ color: '#666', fontSize: '1.15rem' }}>
+                            Explore the features and technologies that make NextGen SOP the standard for pharmaceutical and research document management.
                         </p>
                     </div>
-
-                    <ScreenshotShowcase
-                        invert={false}
-                        badge="Intelligent Dashboard"
-                        title="Command Center for Compliance"
-                        description="Get a bird's-eye view of your entire procedural landscape. Track pending approvals, upcoming review cycles, and team training progress entirely in real-time."
-                        list={[
-                            "Real-time analytics and compliance scoring",
-                            "Actionable alerts for expiring documents",
-                            "Customizable widgets for role-specific views"
-                        ]}
-                    />
-
-                    <ScreenshotShowcase
-                        invert={true}
-                        badge="Document Editor"
-                        title="Rich Procedure Authoring"
-                        description="Say goodbye to static PDFs. Our dynamic editor allows you to build interactive, media-rich Standard Operating Procedures that teams actually understand."
-                        list={[
-                            "Drag-and-drop media embedding (images, videos)",
-                            "Automated versioning completely hidden from the author",
-                            "Inline commenting and collaborative drafting"
-                        ]}
-                    />
-
-                    <ScreenshotShowcase
-                        invert={false}
-                        badge="Approval Workflows"
-                        title="Accelerated Sign-offs"
-                        description="Route documents through rigorous yet rapid approval chains. Complete with 21 CFR Part 11 compliant electronic signatures."
-                        list={[
-                            "Multi-stage routing (Author -> QA -> Reviewer -> Approver)",
-                            "One-click secure biometric/password signatures",
-                            "Complete, immutable audit trails logging every action"
-                        ]}
-                    />
                 </div>
 
-                {/* Demo Video Section */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                    style={{ marginBottom: '140px' }}
-                >
-                    <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-                        <h2 style={{ color: 'white', fontSize: 'clamp(2rem, 5vw, 2.5rem)', marginBottom: '15px' }}>See It In Action</h2>
-                        <p style={{ color: '#EAD8B1', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto', opacity: 0.8 }}>
-                            Watch how our SOP module simplifies compliance and procedure management.
-                        </p>
-                    </div>
+                {/* Showcases */}
+                {Content.showcases.map((showcase, index) => (
+                    <ScreenshotShowcase
+                        key={showcase.id}
+                        invert={index % 2 !== 0}
+                        badge={showcase.badge}
+                        title={showcase.title}
+                        description={showcase.description}
+                        list={showcase.list}
+                        imgSrc={showcase.img}
+                    />
+                ))}
 
-                    <div style={{
-                        position: 'relative',
-                        paddingTop: '56.25%', // 16:9 Aspect Ratio
-                        background: 'rgba(58, 109, 140, 0.1)',
-                        borderRadius: '24px',
-                        overflow: 'hidden',
-                        border: '1px solid rgba(106, 154, 176, 0.2)',
-                        boxShadow: '0 25px 50px -12px rgba(0, 31, 63, 0.5)'
-                    }}>
-                        <iframe
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                width: '100%',
-                                height: '100%',
-                                border: 0
-                            }}
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&showinfo=0&rel=0&autoplay=0&loop=1&mute=1"
-                            title="SOP Module Demo"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                    </div>
-                </motion.div>
+                {/* Software Simulation Demo Section */}
+                <div className="row justify-content-center mil-p-120-120">
+                     <div className="col-xl-10">
+                        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+                            <h2 className="mil-mb-30 mil-font-1" style={{ color: '#121820' }}>
+                                Experience the <span className="mil-accent" style={{ color: '#3A6D8C' }}>Workflow</span>
+                            </h2>
+                            <p className="mil-font-2" style={{ color: '#666', fontSize: '1.15rem' }}>
+                                Watch how our SOP module automates the entire document lifecycle, from drafting to secure blockchain approval.
+                            </p>
+                        </div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            viewport={{ once: true }}
+                            className="mil-mb-90"
+                        >
+                            <SOPModuleDemo />
+                        </motion.div>
+                     </div>
+                </div>
 
                 {/* Features Grid */}
-                <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-                    <h2 style={{ color: 'white', fontSize: 'clamp(2rem, 5vw, 2.5rem)', marginBottom: '15px' }}>Powerful Features</h2>
-                    <p style={{ color: '#EAD8B1', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto', opacity: 0.8 }}>
-                        Everything you need to manage procedures effectively in one cohesive ecosystem.
-                    </p>
+                <div className="row justify-content-center mil-mb-90">
+                    <div className="col-xl-7 mil-text-center">
+                        <h2 className="mil-mb-30 mil-font-1" style={{ color: '#121820' }}>
+                            Enterprise <span className="mil-accent" style={{ color: '#3A6D8C' }}>Feature Set</span>
+                        </h2>
+                    </div>
                 </div>
 
                 <div className="row">
-                    <div className="col-lg-4 col-md-6" style={{ marginBottom: '30px' }}>
-                        <FeatureCard
-                            icon={ShieldCheck}
-                            title="Compliant by Design"
-                            description="Built to meet strict regulatory standards including FDA 21 CFR Part 11 and ISO 9001, providing complete audit trails."
-                            delay={0}
-                        />
-                    </div>
-                    <div className="col-lg-4 col-md-6" style={{ marginBottom: '30px' }}>
-                        <FeatureCard
-                            icon={RefreshCw}
-                            title="Version Control"
-                            description="Never lose track of changes. Automated versioning ensures your team always accesses the most current approved procedure."
-                            delay={0.1}
-                        />
-                    </div>
-                    <div className="col-lg-4 col-md-6" style={{ marginBottom: '30px' }}>
-                        <FeatureCard
-                            icon={Users}
-                            title="Role-Based Access"
-                            description="Granular permission settings control who can view, edit, approve, and distribute specific operational documents."
-                            delay={0.2}
-                        />
-                    </div>
-                    <div className="col-lg-4 col-md-6" style={{ marginBottom: '30px' }}>
-                        <FeatureCard
-                            icon={Zap}
-                            title="Automated Workflows"
-                            description="Accelerate approvals with customized routing, automated notifications, and one-click electronic signatures."
-                            delay={0.3}
-                        />
-                    </div>
-                    <div className="col-lg-4 col-md-6" style={{ marginBottom: '30px' }}>
-                        <FeatureCard
-                            icon={Clock}
-                            title="Review Cycles"
-                            description="Set automated reminders for periodic document reviews to ensure your procedures never fall out of compliance."
-                            delay={0.4}
-                        />
-                    </div>
-                    <div className="col-lg-4 col-md-6" style={{ marginBottom: '30px' }}>
-                        <FeatureCard
-                            icon={FileText}
-                            title="Rich Media Support"
-                            description="Embed videos, images, and diagrams directly into procedures to improve comprehension and reduce training time."
-                            delay={0.5}
-                        />
-                    </div>
+                    {Content.features.map((feature, index) => (
+                        <div className="col-lg-4 col-md-6" key={feature.id}>
+                            <FeatureCard 
+                                icon={feature.icon}
+                                title={feature.title}
+                                description={feature.description}
+                                delay={0.1 * index}
+                            />
+                        </div>
+                    ))}
                 </div>
-
             </div>
+            
+            <style jsx global>{`
+                .mil-dark-card:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 30px 60px rgba(0, 31, 63, 0.2);
+                    border-color: rgba(106, 154, 176, 0.4) !important;
+                }
+            `}</style>
         </section>
     );
 };

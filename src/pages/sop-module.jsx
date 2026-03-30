@@ -28,8 +28,7 @@ const SOPModulePage = () => {
             </Head>
 
             <Layouts transparent>
-                <GlobalSOP3DScene />
-                {/* The Hero component will create a full-screen 3D immersive experience */}
+                {/* The Hero component now includes its own starry 3D background for QMS consistency */}
                 <SOPModuleHero />
 
                 {/* Details section with video and feature breakdown */}

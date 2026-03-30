@@ -3,120 +3,86 @@ const DefaultFooter = () => {
     <footer className="mil-dark-bg">
       <img src="img/deco/map.png" alt="background" className="mil-footer-bg" />
       <div className="container">
-        <div className="mil-footer-content mil-p-120-90">
-          <div className="row justify-content-between align-items-center">
-            <div className="col-xl-4 mil-mb-30">
+        <div className="mil-footer-content">
+          <div className="row align-items-center mil-p-120-60">
+            <div className="col-xl-6 mil-mb-60">
+              <h3 className="mil-light mil-mb-15">
+                Join The <span className="mil-accent">Nextgen Digi Lab</span> Experience
+              </h3>
+              <p className="mil-light-soft">
+                Empowering pharma, clinical, and research industries with innovative 
+                software and IoT solutions that simplify compliance, boost efficiency, and accelerate growth.
+              </p>
+            </div>
+          </div>
+
+          <div className="mil-divider mil-light" />
+
+          <div className="row justify-content-between mil-p-120-60">
+            <div className="col-md-3 col-lg-3 col-xl-3 mil-mb-30">
               <img
                 src="img/logo/logo-light.png"
                 alt="logo"
-                className="mil-logo mil-mb-30"
-                style={{ width: 160 }}
+                className="mil-logo mil-mb-60"
+                style={{ width: 140 }}
               />
-              <p className="mil-light-soft mil-mb-30">
-                Nextgen Digi Lab empowers industries through intelligent digital
-                solutions — from IoT systems and automation to customized software
-                for pharma, research, and enterprise needs.
+              <p className="mil-light mil-light-soft" style={{ marginBottom: 45 }}>
+                B-602 Sai Arcade, Bhujbal Vasti, Wakad, Pimpri-Chinchwad, Maharashtra 411057, India
               </p>
-              <a href="#." className="mil-app-btn mil-mb-5">
-                <i className="fab fa-google-play" />
-                <div className="mil-app-text">
-                  <span className="mil-accent mil-text-sm">
-                    Available soon on
+              <ul className="mil-simple-list mil-mb-15">
+                <li className="mil-light">
+                  <span className="mil-accent">+91</span>&nbsp;
+                  <span className="mil-light-soft">70202 88467</span>
+                </li>
+                <li>
+                  <span className="mil-accent">info</span>
+                  <span className="mil-light mil-light-soft">
+                    @nextgendigilab.com
                   </span>
-                  <div className="mil-h6">Google Play</div>
-                </div>
-              </a>
-              <a href="#." className="mil-app-btn">
-                <i className="fab fa-apple" />
-                <div className="mil-app-text">
-                  <span className="mil-accent mil-text-sm">
-                    Coming soon to
-                  </span>
-                  <div className="mil-h6">App Store</div>
-                </div>
-              </a>
+                </li>
+              </ul>
             </div>
 
-            <div className="col-xl-7 mil-mt-60-adapt">
-              <div className="row">
-                <div className="col-lg-7 mil-mb-30">
-                  <h3 className="mil-light mil-up-font mil-mb-30">
-                    Join The <span className="mil-accent">Nextgen Digi Lab</span> <br />
-                    Innovation Journey
-                  </h3>
-                  <p className="mil-light-soft">
-                    Follow us on social media to Stay updated with our latest innovations, case studies, and
-                    technology insights that are transforming industries.
-                  </p>
+            <div className="col-md-8 col-lg-7 col-xl-7">
+              <div className="row justify-content-end">
+                <div className="col-md-4 col-lg-4 mil-mb-60">
+                  <h4 className="mil-list-title mil-light mil-mb-60">Social</h4>
+                  <ul className="mil-hover-link-list mil-light">
+                    <li><a href="https://www.facebook.com/nextgendigilab" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/nextgendigilab" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/company/nextgen-digi-lab/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://twitter.com/nextgendigilab" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                    <li><a href="https://www.youtube.com/@nextgendigilab" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                  </ul>
                 </div>
-                <div className="col-lg-5 mil-mb-30">
-                  {/* <form>
-                    <input
-                      className="mil-rounded-input mil-text-center mil-mb-5"
-                      type="text"
-                      placeholder="Your email address"
-                    />
-                    <button className="mil-button mil-accent-bg mil-fw">
-                      <span>Subscribe Now</span>
-                    </button>
-                  </form> */}
+
+                <div className="col-md-4 col-lg-4 mil-mb-60">
+                  <h4 className="mil-list-title mil-light mil-mb-60">Support</h4>
+                  <ul className="mil-hover-link-list mil-light">
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/faq">FAQs</a></li>
+                  </ul>
+                </div>
+
+                <div className="col-md-4 col-lg-4 mil-mb-60">
+                  <h4 className="mil-list-title mil-light mil-mb-60">Links</h4>
+                  <ul className="mil-hover-link-list mil-light">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/terms">Terms &amp; Conditions</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/partners">Partners</a></li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="mil-divider mil-light" />
-
-        <div className="mil-footer-links">
-          <ul className="mil-social mil-light">
-            <li className="mil-adapt-links">
-              <a href="https://facebook.com">Facebook</a>
-              <a href="https://facebook.com">FB</a>
-            </li>
-            <li className="mil-adapt-links">
-              <a href="https://instagram.com">Instagram</a>
-              <a href="https://instagram.com">IG</a>
-            </li>
-            <li className="mil-adapt-links">
-              <a href="https://linkedin.com/company/nextgen-digilab">LinkedIn</a>
-              <a href="https://linkedin.com/company/nextgen-digilab">IN</a>
-            </li>
-            <li className="mil-adapt-links">
-              <a href="https://twitter.com">Twitter</a>
-              <a href="https://twitter.com">TW</a>
-            </li>
-            <li className="mil-adapt-links">
-              <a href="https://youtube.com">YouTube</a>
-              <a href="https://youtube.com">YT</a>
-            </li>
-          </ul>
-
-          <ul className="mil-additional-links mil-light">
-            <li>
-              <a href="/terms">Terms &amp; Conditions</a>
-            </li>
-            <li>
-              <a href="/privacy">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="/sitemap">Sitemap</a>
-            </li>
-            <li>
-              <a href="/contact">Contact Us</a>
-            </li>
-          </ul>
-        </div>
       </div>
 
       <div className="mil-footer-bottom">
         <div className="container">
-          <p className="mil-text-sm mil-light">
-            © {new Date().getFullYear()} Nextgen Digi Lab. <br/>All Rights Reserved.
-          </p>
-          <p className="mil-text-sm mil-light">
-            Designed & Developed with ❤️ <br/>by Nextgen Digi Lab.
-          </p>
+          <p className="mil-text-sm mil-light">© {new Date().getFullYear()} Nextgen Digi Lab. All Rights Reserved.</p>
+          <p className="mil-text-sm mil-light">Designed & Developed with ❤️ by Nextgen Digi Lab.</p>
         </div>
       </div>
     </footer>

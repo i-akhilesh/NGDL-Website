@@ -9,7 +9,7 @@ const Layouts = ({
   footer,
   noHeader,
   noFooter,
-  transparent,
+  transparent = true,
   headerTop,
   extarClass,
 }) => {

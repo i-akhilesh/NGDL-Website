@@ -1,158 +1,207 @@
-import React, { useRef } from "react";
-import Link from "next/link";
-import Content from "../../data/sliders/hero-slideshow.json";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Stars, Float, PerspectiveCamera } from "@react-three/drei";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import dynamic from "next/dynamic";
+import { motion, AnimatePresence } from "framer-motion";
 
-const DNAHelix = () => {
-  const groupRef = useRef();
+const TechNetworkBackground = dynamic(() => import("../3d/TechNetworkBackground"), { ssr: false });
 
-  useFrame((state, delta) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y += delta * 0.5;
-      groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1;
-    }
-  });
+const TOTAL = 2;
 
-  const numPairs = 16; // 3 full rounds (36 * PI/6 = 6PI)
-  const radius = 0.8;
-  const height = 2.5;
-  const yStep = height / numPairs;
-  const angleStep = Math.PI / 6;
-
-  const pairs = Array.from({ length: numPairs }).map((_, i) => {
-    const y = -height / 2 + i * yStep;
-    const angle = i * angleStep;
-    const x1 = Math.cos(angle) * radius;
-    const z1 = Math.sin(angle) * radius;
-    const x2 = Math.cos(angle + Math.PI) * radius;
-    const z2 = Math.sin(angle + Math.PI) * radius;
-
-    return (
-      <group key={i}>
-        {/* Backbone Spheres */}
-        <mesh position={[x1, y, z1]}>
-          <sphereGeometry args={[0.08, 16, 16]} />
-          <meshStandardMaterial color="#3A6D8C" emissive="#3A6D8C" emissiveIntensity={0.8} />
-        </mesh>
-        <mesh position={[x2, y, z2]}>
-          <sphereGeometry args={[0.08, 16, 16]} />
-          <meshStandardMaterial color="#6A9AB0" emissive="#6A9AB0" emissiveIntensity={0.8} />
-        </mesh>
-        {/* Base Pair Connecting Cylinder */}
-        <mesh position={[0, y, 0]} rotation={[0, -angle, Math.PI / 2]}>
-          <cylinderGeometry args={[0.02, 0.02, radius * 2]} />
-          <meshStandardMaterial color="#EAD8B1" transparent opacity={0.6} />
-        </mesh>
-      </group>
-    );
-  });
-
-  return (
-    <group ref={groupRef} rotation={[0.4, 0, 0]}>
-      {pairs}
-    </group>
-  );
+const slide0Variants = {
+  initial: (dir) => ({
+    opacity: 0,
+    scale: dir === 1 ? 0.85 : 1.5,
+  }),
+  animate: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } },
+  exit: (dir) => ({
+    opacity: 0,
+    scale: dir === 1 ? 1.6 : 0.8,
+    transition: { duration: 0.7, ease: "easeIn" },
+  }),
 };
 
-const Scene = () => {
-  return (
-    <>
-      <PerspectiveCamera makeDefault position={[0, 0, 8]} />
-      <ambientLight intensity={0.6} />
-      <pointLight position={[10, 10, 10]} intensity={1.2} color="#6A9AB0" />
-      <pointLight position={[-10, -10, -10]} intensity={0.8} color="#EAD8B1" />
-
-      <Stars radius={100} depth={50} count={3000} factor={3} saturation={0} fade speed={1} />
-
-      <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
-        <DNAHelix />
-      </Float>
-
-      <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={1} />
-    </>
-  );
+const slide1Variants = {
+  initial: (dir) => ({
+    opacity: 0,
+    y: dir === 1 ? 70 : -50,
+  }),
+  animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  exit: (dir) => ({
+    opacity: 0,
+    y: dir === -1 ? 80 : -60,
+    transition: { duration: 0.6, ease: "easeIn" },
+  }),
 };
 
 const CustomHero3D = () => {
+  const [slide, setSlide] = useState(0);
+  const [dir, setDir] = useState(1);
+  const [done, setDone] = useState(false);
+  const cooldown = useRef(false);
+  const touchStartY = useRef(null);
+  // Keep mutable refs so the event handler can read latest values without re-registering
+  const slideRef = useRef(slide);
+  const doneRef = useRef(done);
+  slideRef.current = slide;
+  doneRef.current = done;
+
+  const advance = useCallback(() => {
+    if (cooldown.current) return;
+    cooldown.current = true;
+    setTimeout(() => { cooldown.current = false; }, 1000);
+    const current = slideRef.current;
+    if (current + 1 >= TOTAL) {
+      setDone(true);
+      doneRef.current = true;
+    } else {
+      setDir(1);
+      setSlide(current + 1);
+      slideRef.current = current + 1;
+    }
+  }, []);
+
+  const retreat = useCallback(() => {
+    if (cooldown.current) return;
+    cooldown.current = true;
+    setTimeout(() => { cooldown.current = false; }, 1000);
+    const current = slideRef.current;
+    if (current <= 0) return;
+    setDir(-1);
+    setDone(false);
+    doneRef.current = false;
+    setSlide(current - 1);
+    slideRef.current = current - 1;
+  }, []);
+
+  useEffect(() => {
+    const onWheel = (e) => {
+      const isDone = doneRef.current;
+
+      if (!isDone) {
+        // Hero is active — intercept ALL scroll
+        e.preventDefault();
+        e.deltaY > 0 ? advance() : retreat();
+      } else {
+        // Hero is "done" but user scrolled back to very top → re-engage
+        if (e.deltaY < 0 && window.scrollY <= 1) {
+          e.preventDefault();
+          if (cooldown.current) return;
+          cooldown.current = true;
+          setTimeout(() => { cooldown.current = false; }, 1000);
+          setDir(-1);
+          setDone(false);
+          doneRef.current = false;
+          // slide stays at 1 so user can then scroll up to reach slide 0
+        }
+      }
+    };
+
+    const onTouchStart = (e) => { touchStartY.current = e.touches[0].clientY; };
+    const onTouchEnd = (e) => {
+      if (touchStartY.current === null) return;
+      const delta = touchStartY.current - e.changedTouches[0].clientY;
+      if (Math.abs(delta) > 30) {
+        const isDone = doneRef.current;
+        if (!isDone) {
+          e.preventDefault();
+          delta > 0 ? advance() : retreat();
+        } else if (delta < 0 && window.scrollY <= 1) {
+          e.preventDefault();
+          setDir(-1);
+          setDone(false);
+          doneRef.current = false;
+        }
+      }
+      touchStartY.current = null;
+    };
+
+    // Always keep listener active so we can detect scroll-up from below
+    window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchend", onTouchEnd, { passive: false });
+    return () => {
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchend", onTouchEnd);
+    };
+  }, [advance, retreat]); // only depends on stable callbacks — NOT on done/slide
+
   return (
-    <div className="mil-banner mil-top-space-0" style={{ position: 'relative', height: '100vh', minHeight: '800px', background: '#001F3F' }}>
+    <>
+      <div style={{
+        position: done ? "relative" : "fixed",
+        top: 0, left: 0,
+        width: "100%", height: "100vh",
+        zIndex: done ? "auto" : 100,
+        background: "#001F3F",
+        overflow: "hidden",
+      }}>
+        {/* 3D Background — never moves */}
+        <TechNetworkBackground showNetwork={false} />
 
-      {/* 3D Canvas Background */}
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
-        <Canvas>
-          <Scene />
-        </Canvas>
-      </div>
+        {/* Vignette */}
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at center, transparent 0%, rgba(0,31,63,0.5) 70%, rgba(0,31,63,0.85) 100%)", zIndex: 2 }} />
 
-      <div className="mil-overlay" />
-      <div className="mil-banner-content" style={{ position: 'relative', zIndex: 10, pointerEvents: 'none', height: '100%', display: 'flex', alignItems: 'center' }}>
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-xl-8">
+        {/* Slide Content */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center", padding: "40px" }}>
+          <AnimatePresence mode="wait" custom={dir}>
+            {slide === 0 && (
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                key="slide0"
+                custom={dir}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={slide0Variants}
+                style={{ textAlign: "center" }}
               >
-                <span className="mil-suptitle mil-mb-60" style={{ color: '#EAD8B1' }}>
-                  <span className="mil-light">{Content.subtitle.first}</span>{" "}
-                  <span className="mil-accent" style={{ color: '#6A9AB0' }}>{Content.subtitle.second}</span>
-                </span>
-                <h1 className="mil-mb-60" style={{ color: 'white' }}>
-                  <span dangerouslySetInnerHTML={{ __html: Content.title.first }} className="mil-uppercase mil-light" />
-                  <span className="mil-font-3 mil-accent" style={{ color: '#3A6D8C' }}>{Content.title.second}</span>
+                <h1 className="mil-font-1 mil-light" style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)", letterSpacing: "2px", fontWeight: "800", lineHeight: 1.15 }}>
+                  NEXTGEN<br />DIGI LAB
                 </h1>
-                <div className="mil-flex-hori-center">
-                  <div style={{ pointerEvents: 'auto' }}>
-                    <Link
-                      href={Content.button.link}
-                      className="mil-button mil-border mil-light"
-                      style={{ borderColor: '#EAD8B1', color: '#EAD8B1' }}
-                    >
-                      <span>{Content.button.label}</span>
-                    </Link>
-                  </div>
-                  <p className="mil-button-descr mil-light-soft" style={{ color: 'rgba(234, 216, 177, 0.8)' }}>
-                    {Content.description}
-                  </p>
-                </div>
+                <p style={{ color: "rgba(255,255,255,0.3)", marginTop: "32px", fontSize: "11px", letterSpacing: "4px", textTransform: "uppercase" }}>
+                  Scroll down ↓
+                </p>
               </motion.div>
-            </div>
-            <div className="col-xl-4">
-              <div className="mil-illustration-1" style={{ pointerEvents: 'auto' }}>
-                {Content.items.map((item, key) => (
-                  <motion.div
-                    className={`mil-item mil-item-${key + 1}`}
-                    key={key}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.5 + (key * 0.2) }}
-                  >
-                    <div className="mil-plus" style={{ background: 'rgba(58, 109, 140, 0.2)', backdropFilter: 'blur(10px)', border: '1px solid rgba(106, 154, 176, 0.3)' }}>
-                      <div className="mil-hover-window" style={{ background: '#001F3F', border: '1px solid rgba(106, 154, 176, 0.5)' }}>
-                        <div className="mil-window-content">
-                          <h5 className="mil-dark mil-mb-15" style={{ color: 'white' }}>{item.title}</h5>
-                          <div className="mil-divider mil-divider-left mil-mb-15" style={{ background: '#6A9AB0' }} />
-                          <p className="mil-text-sm" style={{ color: '#EAD8B1' }}>
-                            {item.text}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="mil-item-hover">
-                        <div className="mil-plus-icon" style={{ color: '#EAD8B1' }}>+</div>
-                        <h6 className="mil-light" style={{ color: 'white' }}>{item.label}</h6>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
+            )}
+            {slide === 1 && (
+              <motion.div
+                key="slide1"
+                custom={dir}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={slide1Variants}
+                style={{ textAlign: "center", maxWidth: "820px" }}
+              >
+                <span style={{ color: "#EAD8B1", fontSize: "11px", letterSpacing: "4px", fontWeight: "700", textTransform: "uppercase", display: "block", marginBottom: "28px" }}>
+                  NEXT GEN DIGI LAB
+                </span>
+                <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "clamp(1.1rem, 2.5vw, 1.45rem)", lineHeight: 1.8, fontWeight: "300" }}>
+                  Transform your business with tailored digital and IoT solutions. At Nextgen Digi Lab, we help enterprises{" "}
+                  <span style={{ color: "#EAD8B1", fontWeight: "600" }}>innovate, automate, and scale</span>{" "}
+                  efficiently through smart technology and seamless integration.
+                </p>
+                <p style={{ color: "rgba(255,255,255,0.2)", marginTop: "40px", fontSize: "11px", letterSpacing: "4px", textTransform: "uppercase" }}>
+                  Scroll down to continue ↓
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Dot indicators */}
+        <div style={{ position: "absolute", right: "28px", top: "50%", transform: "translateY(-50%)", zIndex: 20, display: "flex", flexDirection: "column", gap: "10px" }}>
+          {[0, 1].map((i) => (
+            <div key={i}
+              onClick={() => { setDir(i > slide ? 1 : -1); setSlide(i); slideRef.current = i; if (i < TOTAL - 1) { setDone(false); doneRef.current = false; } }}
+              style={{ width: "7px", height: "7px", borderRadius: "50%", background: i === slide ? "#EAD8B1" : "rgba(255,255,255,0.25)", transition: "all 0.3s", cursor: "pointer" }}
+            />
+          ))}
         </div>
       </div>
-    </div>
+
+      {/* Spacer while hero is fixed */}
+      {!done && <div style={{ height: "100vh" }} />}
+    </>
   );
 };
 

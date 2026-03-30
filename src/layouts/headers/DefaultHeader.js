@@ -57,7 +57,7 @@ const DefaultHeader = ({ transparent, headerTop, extarClass }) => {
                   </ul>
                 </li>
                 <li className="mil-has-children">
-                  <Link href="#.">QMS</Link>
+                  <Link href="qms">QMS</Link>
                   <ul>
                     <li>
                       <Link href="sop-module">SOP Module</Link>

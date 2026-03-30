@@ -11,6 +11,7 @@ import HowItWorksSection from "../components/sections/HowItWorks";
 import SkillsSection from "../components/sections/Skills";
 import ContactSection from "../components/sections/Contact";
 import Divider from "../components/sections/Divider";
+import QMSSection from "../components/sections/QMSSection";
 
 const LatestProjectsSlider = dynamic(() => import("../components/sliders/LatestProjects"), { ssr: false });
 const LatestPostsSlider = dynamic(() => import("../components/sliders/LatestPosts"), { ssr: false });
@@ -22,6 +23,8 @@ const Home1 = (props) => {
     <Layouts transparent>
       <HeroSlideshowSlider />
       {/* <PartnersSection /> */}
+      <Divider />
+      <QMSSection />
       <Divider />
       <ServicesSection />
       <Divider />

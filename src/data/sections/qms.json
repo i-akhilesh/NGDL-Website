@@ -1,0 +1,83 @@
+{
+  "title": { "first": "NextGen", "second": "QMS" },
+  "subtitle": "Quality Management System",
+  "description": "A comprehensive enterprise-grade compliance suite designed for the pharmaceutical and research sectors. Scale your quality operations with integrated digital workflows.",
+  "explore_label": "Explore QMS Suite",
+  "agile_strategy": {
+    "title": "Agile Development Strategy",
+    "description": "Our development follows a transparent milestone system. Each percentage represents a critical phase of the software lifecycle.",
+    "milestones": [
+      { "percent": 10, "label": "Base Architecture", "color": "#6A9AB0" },
+      { "percent": 20, "label": "UI/UX Wireframes", "color": "#3A6D8C" },
+      { "percent": 40, "label": "Core Logic", "color": "#001F3F" },
+      { "percent": 20, "label": "Testing & QA", "color": "#3A6D8C" },
+      { "percent": 10, "label": "Launch & Compliance", "color": "#6A9AB0" }
+    ]
+  },
+  "items": [
+    {
+      "id": "sop",
+      "name": "SOP Module",
+      "status": "Ready",
+      "progress": 100,
+      "launch": "Live Now",
+      "link": "/sop-module",
+      "icon": "img/icons/md/1.svg",
+      "text": "Full lifecycle management for Standard Operating Procedures with secure digital approvals."
+    },
+    {
+      "id": "doc",
+      "name": "Document Control",
+      "status": "Coming Soon",
+      "progress": 60,
+      "launch": "Q3 2026",
+      "icon": "img/icons/md/2.svg",
+      "text": "Centralized, regulatory-compliant repository for all quality-critical documentation."
+    },
+    {
+      "id": "dev",
+      "name": "Deviation Management",
+      "status": "Coming Soon",
+      "progress": 45,
+      "launch": "Q4 2026",
+      "icon": "img/icons/md/3.svg",
+      "text": "Automated incident tracking and investigation workflows for operational excellence."
+    },
+    {
+      "id": "risk",
+      "name": "Risk Assessment",
+      "status": "Coming Soon",
+      "progress": 40,
+      "launch": "Q4 2026",
+      "icon": "img/icons/md/4.svg",
+      "text": "Quantitative and qualitative risk identification based on ICH Q9 regulatory standards."
+    },
+    {
+      "id": "change",
+      "name": "Change Control",
+      "status": "Coming Soon",
+      "progress": 40,
+      "launch": "Q1 2027",
+      "icon": "img/icons/md/5.svg",
+      "text": "Formalized impact assessment and tracking for changes across systems and processes."
+    },
+    {
+      "id": "capa",
+      "name": "CAPA Management",
+      "status": "Coming Soon",
+      "progress": 30,
+      "launch": "Q1 2027",
+      "icon": "img/icons/md/6.svg",
+      "text": "Closed-loop corrective and preventive actions to drive continuous quality improvement."
+    },
+    {
+      "id": "train",
+      "name": "Training Module",
+      "status": "Coming Soon",
+      "progress": 40,
+      "launch": "Q2 2027",
+      "icon": "img/icons/md/2.svg",
+      "text": "Competency-based training automation and personnel qualification tracking."
+    }
+  ]
+}

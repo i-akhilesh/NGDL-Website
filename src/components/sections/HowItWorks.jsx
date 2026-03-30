@@ -17,17 +17,17 @@ const HowItWorksSection = () => {
         </h2>
         <div className="row">
           {Content.items.map((item, key) => (
-          <div className="col-md-6 col-xl-3" key={`how-it-works-i-${key}`}>
-            <div className="mil-mb-60">
-              <div className="mil-icon-box-head mil-mb-30">
-                <div className="mil-icon-frame mil-icon-frame-sm">
-                  <img src={item.icon} alt="icon" />
+            <div className="col-md-6 col-xl-3" key={`how-it-works-i-${key}`}>
+              <div className="mil-mb-60">
+                <div className="mil-icon-box-head mil-mb-30">
+                  <div className="mil-icon-frame mil-icon-frame-sm">
+                    <img src={item.icon} alt="icon" />
+                  </div>
+                  <h5>{item.name}</h5>
                 </div>
-                <h5>{item.name}</h5>
+                <p>{item.text}</p>
               </div>
-              <p>{item.text}</p>
             </div>
-          </div>
           ))}
         </div>
         <div className="row align-items-center">

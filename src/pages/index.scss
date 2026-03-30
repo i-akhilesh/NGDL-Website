@@ -1,1 +1,20 @@
 @import '@/public/scss/style';
+
+/* Hero specificity (Hero stays dark) */
+.mil-banner {
+    h1, h2, h3, h4, h5, h6, .mil-suptitle, .mil-link, p, .mil-light-soft, .mil-item-hover h6 {
+        color: #ffffff !important; 
+    }
+    
+    .mil-suptitle {
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    .mil-accent {
+        color: #ffffff !important; /* Force accent to white in Hero as requested */
+    }
+    
+    .mil-light-soft {
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
+}
